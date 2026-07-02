@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body class="bdy">
+    <div class="box" >
+        
+        <div class="container">
+            <h1>Temperature Converter</h1>
+            <input type="text" id="input" placeholder=" enter the Temperature"/>
+            <div>
+                <label for="fromUnit">from unit</label>
+               <select class="fromU">
+                <option value="fahrenheit" id="f1">fahrenheit</option>
+                <option value="celcius" id="c1">celcius</option>
+                <option value="kelvin" id="k1">kelvin</option>
+               </select>
+            </div>
+            <div>
+                <label for="fromUnit">To unit</label>
+               <select class="toU">
+                <option value="fahrenheit" id="f2">fahrenheit</option>
+                <option value="celcius" id="c2">celcius</option>
+                <option value="kelvin" id="k2">kelvin</option>
+               </select>
+            </div>
+            <button onclick="handleSubmit" class="btn">Convert</button>
+            <div class="reBox">
+                <p class="result">Result:0</p>
+            </div>
+        </div>
+    </div>
+    <script  >
+        const handleSubmit=()=>{
+let  inputTemp=Number(document.getElementById("#input")).value
+let fromU=document.getElementsByClassName(".fromU").value
+let toU=document.getElementsByClassName(".toU").value
+
+let btn=document.getElementsByClassName(".btn")
+let resultT=document.getElementsByClassName(".result")
+let result=0
+
+if(fromU==="fahrenheit" && toU==="celcius"){
+    result=(inputTemp-32)(5/9)
+    resultT.innerText=result;
+
+}else if(fromU==="fahrenheit" && toU==="kelvin"){
+    result=(inputTemp-32)(5/9)+273.15
+    resultT.innerText=result;
+} else if(fromU==="celcius" && toU==="fahrenheit"){
+    result=inputTemp(9/5)+32;
+    resultT.innerText=result
+    
+}
+else if(fromU==="celcius" && toU==="kelvin"){
+    result=inputTemp+273.15
+    resultT.innerText=result
+}
+else if(fromU==="kelvin" && toU==="celcius"){
+    result=inputTemp-273.15;
+    resultT.innerText=result
+}
+else if(fromU==="kelvin" && toU=="fahrenheit"){
+    result=(inputTemp-273.15)(9/5)+32
+    result.innerText=result
+}
+
+
+}
+
+handleSubmit();
+    </script>
+
+    
+</body>
+</html>

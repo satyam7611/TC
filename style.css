@@ -1,0 +1,47 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+
+.box{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100%;
+ margin:15px;
+ border: 1px solid black;
+}
+
+#input{
+    padding: 4px;
+    margin-top: 4px;
+    margin-bottom: 3px;
+}
+
+.btn{
+    margin-left: 16px;
+    background-color: green;
+    color:white;
+    margin-top: 4px;
+
+}
+.container{
+    margin:10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.fromU{
+    margin: 5px;
+}
+
+.reBox{
+    border: 1px solid black;
+    margin-top:7px;
+    padding: 4px;
+}
