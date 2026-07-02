@@ -28,51 +28,57 @@
                 <option value="kelvin" id="k2">kelvin</option>
                </select>
             </div>
-            <button onclick="handleSubmit" class="btn">Convert</button>
+            <button onclick="handleSubmit()" class="btn">Convert</button>
             <div class="reBox">
                 <p class="result">Result:0</p>
             </div>
         </div>
     </div>
     <script  >
-        const handleSubmit=()=>{
-let  inputTemp=Number(document.getElementById("#input")).value
-let fromU=document.getElementsByClassName(".fromU").value
-let toU=document.getElementsByClassName(".toU").value
+          const handleSubmit = () => {
+            let inputTemp = Number(document.getElementById("input").value)
+            let fromU = document.querySelector(".fromU").value
+            let toU = document.querySelector(".toU").value
 
-let btn=document.getElementsByClassName(".btn")
-let resultT=document.getElementsByClassName(".result")
-let result=0
+            let btn = document.querySelector(".btn")
+            let resultT = document.querySelector(".result")
+            let result = 0
 
-if(fromU==="fahrenheit" && toU==="celcius"){
-    result=(inputTemp-32)(5/9)
-    resultT.innerText=result;
+            if (fromU === "fahrenheit" && toU === "celcius") {
 
-}else if(fromU==="fahrenheit" && toU==="kelvin"){
-    result=(inputTemp-32)(5/9)+273.15
-    resultT.innerText=result;
-} else if(fromU==="celcius" && toU==="fahrenheit"){
-    result=inputTemp(9/5)+32;
-    resultT.innerText=result
-    
-}
-else if(fromU==="celcius" && toU==="kelvin"){
-    result=inputTemp+273.15
-    resultT.innerText=result
-}
-else if(fromU==="kelvin" && toU==="celcius"){
-    result=inputTemp-273.15;
-    resultT.innerText=result
-}
-else if(fromU==="kelvin" && toU=="fahrenheit"){
-    result=(inputTemp-273.15)(9/5)+32
-    result.innerText=result
-}
+                result = (inputTemp - 32) * (5 / 9);
 
 
-}
+            } else if (fromU === "fahrenheit" && toU === "kelvin") {
+                result = (inputTemp - 32) * (5 / 9) + 273.15;
 
-handleSubmit();
+            } else if (fromU === "celcius" && toU === "fahrenheit") {
+
+                result = inputTemp * (9 / 5) + 32;
+
+
+            }
+            else if (fromU === "celcius" && toU === "kelvin") {
+                result = inputTemp + 273.15;
+            }
+            else if (fromU === "kelvin" && toU === "celcius") {
+                result = inputTemp - 273.15;
+            }
+            else if (fromU === "kelvin" && toU == "fahrenheit") {
+                result = (inputTemp - 273.15) * (9 / 5) + 32;
+            }
+            else if (
+                (fromU === "celcius" && toU === "celcius") ||
+                (fromU === "kelvin" && toU === "kelvin") ||
+                (fromU === "fahrenheit" && toU === "fahrenheit")
+            ) {
+                result = inputTemp;
+            }
+
+            resultT.innerText = `result : ${result.toFixed(2)}`
+
+        }
+
     </script>
 
     
